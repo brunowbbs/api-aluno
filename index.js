@@ -26,6 +26,29 @@ server.get("/", (req, res) => {
   });
 });
 
+server.get("/cursos", (req, res) => {
+  return res.json({
+    cursos: [
+      {
+        id:1,
+        name:"Banco de Dados"
+      },
+      {
+        id:2,
+        name:"Desenvolvimento Back-end"
+      },
+      {
+        id:3,
+        name:"Desenvolvimento Front-end"
+      },
+      {
+        id:4,
+        name:"UX/UI"
+      },
+    ],
+  });
+});
+
 server.post("/aluno", async (req, res) => {
   const { nome, matricula, curso, bimestre } = req.body;
   if (!nome || !matricula || !curso || !bimestre) {
