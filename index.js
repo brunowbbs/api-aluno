@@ -51,6 +51,10 @@ server.get("/cursos", (req, res) => {
 
 server.post("/aluno", async (req, res) => {
   const { nome, matricula, curso, bimestre } = req.body;
+  
+  if (!nome || !matricula || !curso || !bimestre) {
+    return res.status(400).json({ message: "Validations Fails" });
+  }
 
   const todo = await ToDoSchema.create(req.body);
   return res.status(201).json(todo);
