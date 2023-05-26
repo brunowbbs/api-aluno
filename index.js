@@ -45,6 +45,18 @@ server.get("/cursos", (req, res) => {
         id:4,
         name:"UX/UI"
       },
+      {
+        id:5,
+        name:"Ciência de Dados"
+      },
+      {
+        id:6,
+        name:"Inteligência Artificial"
+      },
+      {
+        id:7,
+        name:"Desenvolvimento Mobile"
+      },
     ],
   });
 });
