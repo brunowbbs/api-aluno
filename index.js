@@ -57,6 +57,10 @@ server.get("/cursos", (req, res) => {
         id:7,
         name:"Desenvolvimento Mobile"
       },
+      {
+        id:8,
+        name:"Desenvolvimento Full-stack"
+      },
     ],
   });
 });
