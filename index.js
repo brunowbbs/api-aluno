@@ -22,7 +22,35 @@ mongoose.connect(
 
 server.get("/", (req, res) => {
   return res.json({
-    message: "Seja bem vindo à API do ALUNO_LIST - Wesley Bruno!!!😉",
+    message: "Seja bem vindo à API do Diário Eletrônico - Wesley Bruno!!!😉",
+    base_url: "https://api-aluno.vercel.app",
+    listar_alunos: {
+      rota: "/aluno",
+    },
+    adicionar_aluno: {
+      rota: "/aluno",
+      body: {
+        nome: "string",
+        matricula: "string",
+        curso: "string",
+        bimestre: "string",
+      },
+    },
+    editar_aluno: {
+      rota: "/aluno/:id_aluno",
+      body: {
+        nome: "string",
+        matricula: "string",
+        curso: "string",
+        bimestre: "string",
+      },
+    },
+    remover_aluno: {
+      rota: "/aluno/:id_aluno",
+    },
+    listar_cursos: {
+      rota: "/cursos",
+    },
   });
 });
 
@@ -30,36 +58,36 @@ server.get("/cursos", (req, res) => {
   return res.json({
     cursos: [
       {
-        id:1,
-        name:"Banco de Dados"
+        id: 1,
+        name: "Banco de Dados",
       },
       {
-        id:2,
-        name:"Desenvolvimento Back-end"
+        id: 2,
+        name: "Desenvolvimento Back-end",
       },
       {
-        id:3,
-        name:"Desenvolvimento Front-end"
+        id: 3,
+        name: "Desenvolvimento Front-end",
       },
       {
-        id:4,
-        name:"UX/UI"
+        id: 4,
+        name: "UX/UI",
       },
       {
-        id:5,
-        name:"Ciência de Dados"
+        id: 5,
+        name: "Ciência de Dados",
       },
       {
-        id:6,
-        name:"Inteligência Artificial"
+        id: 6,
+        name: "Inteligência Artificial",
       },
       {
-        id:7,
-        name:"Desenvolvimento Mobile"
+        id: 7,
+        name: "Desenvolvimento Mobile",
       },
       {
-        id:8,
-        name:"Desenvolvimento Full-stack"
+        id: 8,
+        name: "Desenvolvimento Full-stack",
       },
     ],
   });
@@ -67,7 +95,7 @@ server.get("/cursos", (req, res) => {
 
 server.post("/aluno", async (req, res) => {
   const { nome, matricula, curso, bimestre } = req.body;
-  
+
   if (!nome || !matricula || !curso || !bimestre) {
     return res.status(400).json({ message: "Validations Fails" });
   }
