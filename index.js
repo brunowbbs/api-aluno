@@ -25,9 +25,11 @@ server.get("/", (req, res) => {
     message: "Seja bem vindo à API do Diário Eletrônico - Wesley Bruno!!!😉",
     base_url: "https://api-aluno.vercel.app",
     listar_alunos: {
+      metodo: "GET",
       rota: "/aluno",
     },
     adicionar_aluno: {
+      metodo: "POST",
       rota: "/aluno",
       body: {
         nome: "string",
@@ -37,6 +39,7 @@ server.get("/", (req, res) => {
       },
     },
     editar_aluno: {
+      metodo: "PUT",
       rota: "/aluno/:id_aluno",
       body: {
         nome: "string",
@@ -46,9 +49,11 @@ server.get("/", (req, res) => {
       },
     },
     remover_aluno: {
+      metodo: "DELETE",
       rota: "/aluno/:id_aluno",
     },
     listar_cursos: {
+      metodo: "GET",
       rota: "/cursos",
     },
   });
